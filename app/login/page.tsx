@@ -10,8 +10,8 @@ export default function page() {
     const router = useRouter()
 
     const [user, setUser] = useState({
-        password: "",
-        username: ""
+        password: "admin",
+        username: "admin"
     })
 
     const [buttonDisabled, setButtonDisabled] = useState(false)
@@ -21,7 +21,7 @@ export default function page() {
     const onLogin = async () => {
         try {
             setLoading(true)
-            const response = await axios.post("/api/users/login", user)
+            const response = await axios.post("/api/users/login", user, {timeout: 10000})
             console.log("login success", response.data)
             router.push('/profile')
         }
