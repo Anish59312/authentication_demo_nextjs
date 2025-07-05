@@ -5,7 +5,7 @@ import axios from "axios"
 import toast from "react-hot-toast"
 import {useRouter} from "next/navigation"
 
-export default function page() {
+export default function SignupPage() {
 
     const router = useRouter()
 
@@ -26,7 +26,7 @@ export default function page() {
             console.log("signup success", response.data)
             router.push('/login')
         }
-        catch (error: any){
+        catch (error: unknown){
             console.log("signup failed")
             toast.error("error while signing up")
         }
